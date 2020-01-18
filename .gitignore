@@ -1,0 +1,6 @@
+*.log
+*.log
+**/build
+**/.gradle
+**/.nb-gradle
+.nb-gradle-properties

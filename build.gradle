@@ -1,0 +1,37 @@
+apply plugin: 'java'
+
+sourceCompatibility = '1.8'
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+if (!hasProperty('mainClass')) {
+    ext.mainClass = 'com.naveed.spring.demo.Main'
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+ext.guavaVersion = '28.2-jre'
+
+dependencies {
+    //compile "org.springframework:spring-webmvc:5.2.2.RELEASE"
+    
+    compile "com.h2database:h2:1.4.200"
+    compile "org.springframework.data:spring-data-jpa:2.2.4.RELEASE"
+    
+    compile "com.google.guava:guava:$guavaVersion"  
+       
+    compile "org.hibernate:hibernate-core:5.4.10.Final"
+
+    compile 'org.eclipse.persistence:eclipselink:2.7.6-RC2'
+        
+    compile "org.slf4j:slf4j-api:1.7.30",
+                "ch.qos.logback:logback-classic:1.2.3"
+    
+    compileOnly "javax.servlet:javax.servlet-api:4.0.1"    
+    compileOnly 'org.projectlombok:lombok:1.18.10'
+    annotationProcessor 'org.projectlombok:lombok:1.18.10'
+    
+    testCompile group: 'junit', name: 'junit', version: '4.10'
+}
